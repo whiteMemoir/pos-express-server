@@ -13,6 +13,7 @@ const orderRoute = require("./app/order/routes");
 const invoiceRoute = require("./app/invoice/routes");
 const authRoute = require("./app/auth/routes");
 const { decodeToken } = require("./middlewares/index");
+const listEndpoints = require("express-list-endpoints");
 
 const app = express();
 
@@ -58,5 +59,7 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.render("error");
 });
+
+// console.log(listEndpoints(app));
 
 module.exports = app;
