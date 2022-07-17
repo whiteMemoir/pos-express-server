@@ -3,7 +3,7 @@ const { model, Schema } = mongoose;
 
 const deliveryAddressSchema = Schema(
 	{
-		kecamatan: {
+		nama: {
 			type: String,
 			required: [true, "Nama alamat harus diisi!"],
 			maxlength: [255, "Panjang maksimal nama alamat adalah 255 karakter"],
@@ -12,6 +12,11 @@ const deliveryAddressSchema = Schema(
 			type: String,
 			required: [true, "Kelurahan harus diisi!"],
 			maxlength: [255, "Panjang maksimal kelurahan adalah 255 karakter"],
+		},
+		kecamatan: {
+			type: String,
+			required: [true, "Kecamatan harus diisi!"],
+			maxlength: [255, "Panjang maksimal kecamatan adalah 255 karakter"],
 		},
 		kabupaten: {
 			type: String,

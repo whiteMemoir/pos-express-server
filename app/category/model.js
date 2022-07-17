@@ -1,12 +1,16 @@
-const mongoose = require('mongoose')
-const { model, Schema } = mongoose
+const mongoose = require("mongoose");
+const { model, Schema } = mongoose;
 
 const categorySchema = Schema({
-    name: {
-        type: String,
-        minlength: [3, 'Panjang nama kategori minimal 3 karakter'],
-        maxlength: [20, 'Panjang nama kategori maksimal 20 karakter'],
-        required: [true, 'Nama katgori harus diisi']
-    }})
+	name: {
+		type: String,
+		minlength: [3, "Panjang nama kategori minimal 3 karakter"],
+		maxlength: [20, "Panjang nama kategori maksimal 20 karakter"],
+		required: [true, "Nama katgori harus diisi"],
+	},
+	image: {
+		type: String,
+	},
+});
 
-module.exports = model('Category', categorySchema)
+module.exports = model("Category", categorySchema);
