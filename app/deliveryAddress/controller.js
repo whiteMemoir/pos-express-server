@@ -4,11 +4,14 @@ const DeliveryAddress = require("./model");
 
 const index = async (req, res, next) => {
 	try {
+		console.log(req.user);
 		const { skip = 0, limit = 10 } = req.query;
 		const count = await DeliveryAddress.find({
 			user: req.user._id,
 		}).countDocuments();
-		const deliveryAddress = await DeliveryAddress.find()
+		const deliveryAddress = await DeliveryAddress.find({
+			user: req.user._id,
+		})
 			.skip(skip)
 			.limit(limit)
 			.sort("-createdAt");
