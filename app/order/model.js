@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 const AutoIncrement = require("mongoose-sequence")(mongoose);
+const Invoice = require("../invoice/model");
 
 const orderSchema = Schema(
 	{
 		status: {
 			type: String,
 			enum: ["waiting_for_payment", "processing", "in_delivery", "delivered"],
-			default: "waiting_payment",
+			default: "waiting_for_payment",
 		},
 		delivery_fee: {
 			type: Number,

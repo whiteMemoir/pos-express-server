@@ -17,7 +17,7 @@ const store = async (req, res, next) => {
 		let deliveryAddress = await DeliveryAddress.findById(delivery_address);
 		let order = new Order({
 			_id: new Types.ObjectId(),
-			status: "waiting_payment",
+			status: "waiting_for_payment",
 			delivery_fee,
 			delivery_address: {
 				provinsi: deliveryAddress.provinsi,
