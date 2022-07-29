@@ -3,6 +3,7 @@ const CartItem = require("../cart-item/model");
 
 const update = async (req, res, next) => {
 	try {
+		console.log(req.body);
 		const { items } = req.body; //bentuknya array
 		const productIds = items.map((item) => item.product._id);
 		const products = await Product.find({ _id: { $in: productIds } });
@@ -13,7 +14,7 @@ const update = async (req, res, next) => {
 			return {
 				product: relatedProduct._id,
 				price: relatedProduct.price,
-				image_url: relatedProduct.image_url,
+				image_url: relatedProduct.image,
 				name: relatedProduct.name,
 				user: req.user._id,
 				qty: item.qty,
